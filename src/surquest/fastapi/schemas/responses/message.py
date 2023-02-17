@@ -1,8 +1,10 @@
-from pydantic import BaseModel, Field
+from pydantic import Field
+# from pydantic import BaseModel
+from .base import Base
 from typing import Optional
 
 
-class Message(BaseModel):
+class Message(Base):
 
     msg: str = Field(...)
     type: Optional[str] = None

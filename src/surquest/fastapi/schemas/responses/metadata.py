@@ -1,7 +1,8 @@
-from pydantic import BaseModel, Field
+from pydantic import Field
+# from pydantic import BaseModel
+from .base import Base
 
-
-class Metadata(BaseModel):
+class Metadata(Base):
 
     offset: int = Field(
         default=0,

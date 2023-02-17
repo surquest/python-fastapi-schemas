@@ -1,16 +1,17 @@
-from pydantic import BaseModel
+# from pydantic import BaseModel
+from .base import Base
 from .info import InfoSuccess, InfoWarning, InfoError
 from .metadata import Metadata
 from typing import Union, List, Dict, Optional
 
 
-class ResponseSuccess(BaseModel):
+class ResponseSuccess(Base):
     info: InfoSuccess = InfoSuccess()
     meta: Optional[Metadata] = None
     data: Union[List, Dict]
 
 
-class ResponseWarning(BaseModel):
+class ResponseWarning(Base):
 
     info: InfoWarning = InfoWarning()
     meta: Optional[Metadata] = None
@@ -25,7 +26,7 @@ class ResponseWarning(BaseModel):
         )
 
 
-class ResponseError(BaseModel):
+class ResponseError(Base):
     info: InfoError = InfoError()
 
     @classmethod
