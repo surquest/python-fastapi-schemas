@@ -1,9 +1,13 @@
 from pydantic import BaseModel
 
 class Base(BaseModel):
-    def dict(self, *args, **kwargs):
+    """Base class for all responses:
 
-        if kwargs and kwargs.get("exclude_none") in [None, True]:
+    This class ensures that all undefined fields are excluded from the response
+
+    """
+    def dict(self, *args, **kwargs):
+        if kwargs:
             kwargs["exclude_none"] = True
 
         return BaseModel.dict(self, *args, **kwargs)
