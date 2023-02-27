@@ -85,8 +85,11 @@ class Response:
 
         if errors is not None:
             return 500
+
         if errors is None and warnings is not None:
             return 299
+
+        return 200
 
 class Responses:
 
